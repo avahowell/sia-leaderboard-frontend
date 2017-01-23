@@ -11,7 +11,6 @@ const Leaderboard = ({entries, groupFilters, sort}) => {
 		sortedEntries = entries.sortBy((entry) => -entry.numBytes)
 	}
 
-
 	return (
 		<div style={leaderboardStyle}>
 			{
