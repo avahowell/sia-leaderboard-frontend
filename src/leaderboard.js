@@ -9,6 +9,8 @@ const Leaderboard = ({entries, groupFilters, sort}) => {
 	let sortedEntries = entries
 	if (sort === 'uploaded') {
 		sortedEntries = entries.sortBy((entry) => -entry.numBytes)
+	} else if (sort === 'timestamp') {
+		sortedEntries = entries.sortBy((entry) => entry.lastUpdated)
 	}
 
 	return (
