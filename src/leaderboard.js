@@ -5,16 +5,25 @@ import { List } from 'immutable'
 const leaderboardStyle = {
 }
 
-const Leaderboard = ({entries}) => (
+const Leaderboard = ({entries, groupFilters}) => (
 	<div style={leaderboardStyle}>
-		{entries.map((entry, key) =>
-			<LeaderboardEntry key={key} name={entry.name} numBytes={entry.numBytes} lastUpdated={entry.lastUpdated} groups={entry.groups} />
-		)}
+		{
+			entries.filter((entry) => groupFilters.length === 0 ? true : entry.groups.some((group) => groupFilters.includes(group))).map((entry, key) =>
+				<LeaderboardEntry
+					key={key}
+					name={entry.name}
+					numBytes={entry.numBytes}
+					lastUpdated={entry.lastUpdated}
+					groups={entry.groups}
+				/>
+			)
+		}
 	</div>
 )
 
 Leaderboard.propTypes = {
 	entries: PropTypes.instanceOf(List).isRequired,
+	groupFilters: PropTypes.instanceOf(Array).isRequired,
 }
 
 export default Leaderboard

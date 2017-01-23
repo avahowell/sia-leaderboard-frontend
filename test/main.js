@@ -18,7 +18,7 @@ const testEntries = List([
 
 describe('leaderboard', () => {
 
-	const leaderboardComponent = mount(<Leaderboard entries={testEntries} />)
+	const leaderboardComponent = mount(<Leaderboard entries={testEntries} groupFilters={[]} />)
 	const leaderboardEntryComponents = leaderboardComponent.find('LeaderboardEntry')
 
 	describe('rendering and appearance', () => {
@@ -53,6 +53,14 @@ describe('leaderboard', () => {
 				}
 				expect(entry.find('#groups').text()).to.equal(expectedText)
 			})
+		})
+	})
+
+	describe('behavior', () => {
+		it('filters by group name', () => {
+			expect(mount(<Leaderboard entries={testEntries} groupFilters={['group1']} />).find('LeaderboardEntry').length).to.equal(4)
+			expect(mount(<Leaderboard entries={testEntries} groupFilters={['group2']} />).find('LeaderboardEntry').length).to.equal(2)
+			expect(mount(<Leaderboard entries={testEntries} groupFilters={['group1', 'group2']} />).find('LeaderboardEntry').length).to.equal(testEntries.size)
 		})
 	})
 })
