@@ -7,7 +7,6 @@
 	},
 	"plugins": [
 		"react",
-		"import",
 		"babel"
 	],
 	"rules": {
@@ -96,9 +95,6 @@
 		"space-before-blocks": 2,
 		"space-before-function-paren": [2, "never"],
 		"indent": [2, "tab"],
-		"semi": [2, "never"],
-		"import/no-unresolved": [2, { "ignore": ["electron"] } ],
-		"import/default": 2,
-		"import/no-duplicates": 2
+		"semi": [2, "never"]
 	}
 }

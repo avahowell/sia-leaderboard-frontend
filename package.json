@@ -7,11 +7,15 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "lint": "eslint --max-warnings 0 ./src ./test",
+    "test-args": "mocha --compilers js:babel-register --recursive ./test",
+    "test": "npm run lint && npm run build && npm run test-args"
   },
   "author": "Johnathan Howell",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "babel-register": "^6.22.0",
     "chai": "^3.5.0",
     "eslint": "^3.14.0",
@@ -24,11 +28,5 @@
     "react": "^15.4.2",
     "redux": "^3.6.0",
     "webpack": "^1.14.0"
-  },
-	"scripts": {
-		"build": "webpack",
-		"lint": "eslint --max-warnings 0 ./src ./test",
-		"test-args": "mocha --compilers js:babel-register --recursive ./test",
-		"test": "npm run lint && npm run build && npm run test-args"
-	}
+  }
 }
