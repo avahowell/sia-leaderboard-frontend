@@ -19,4 +19,16 @@ module.exports = {
 		__filename: false,
 	},
 	target: 'web',
+	module: {
+		loaders: [
+			{
+				test: /\.js?$/,
+				loader: 'babel',
+				exclude: /node_modules/,
+				query: {
+					presets: ['react', 'es2015', 'stage-3']
+				}
+			}
+		]
+	}
 }

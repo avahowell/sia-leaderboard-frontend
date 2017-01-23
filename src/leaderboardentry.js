@@ -19,7 +19,7 @@ const LeaderboardEntry = ({name, numBytes, lastUpdated, groups}) => (
 LeaderboardEntry.propTypes = {
 	name: PropTypes.string.isRequired,
 	numBytes: PropTypes.number.isRequired,
-	lastUpdate: PropTypes.instanceOf(Date).isRequired,
+	lastUpdated: PropTypes.instanceOf(Date).isRequired,
 	groups: PropTypes.instanceOf(Array).isRequired,
 }
 
