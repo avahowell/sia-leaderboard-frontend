@@ -18,10 +18,10 @@ const testEntries = List([
 
 describe('leaderboard', () => {
 
-	const leaderboardComponent = mount(<Leaderboard entries={testEntries} groupFilters={[]} />)
-	const leaderboardEntryComponents = leaderboardComponent.find('LeaderboardEntry')
-
 	describe('rendering and appearance', () => {
+		const leaderboardComponent = mount(<Leaderboard entries={testEntries} groupFilters={[]} />)
+		const leaderboardEntryComponents = leaderboardComponent.find('LeaderboardEntry')
+
 		it('renders a div with correct number of entries', () => {
 			expect(leaderboardEntryComponents.length).to.equal(testEntries.size)
 		})
@@ -61,6 +61,22 @@ describe('leaderboard', () => {
 			expect(mount(<Leaderboard entries={testEntries} groupFilters={['group1']} />).find('LeaderboardEntry').length).to.equal(4)
 			expect(mount(<Leaderboard entries={testEntries} groupFilters={['group2']} />).find('LeaderboardEntry').length).to.equal(2)
 			expect(mount(<Leaderboard entries={testEntries} groupFilters={['group1', 'group2']} />).find('LeaderboardEntry').length).to.equal(testEntries.size)
+		})
+		it('sorts by uploaded bytes', () => {
+			const component = mount(<Leaderboard entries={testEntries} groupFilters={[]} sort="uploaded" />)
+			const componentEntries = component.find('LeaderboardEntry')
+
+			let isSorted = true
+			for (let i = 0; i < componentEntries.length; i++) {
+				if (i === 0) {
+					continue
+				}
+				if (componentEntries.at(i).props().numBytes >= componentEntries.at(i-1).props().numBytes) {
+					isSorted = false
+				}
+			}
+
+			expect(isSorted).to.equal(true)
 		})
 	})
 })
