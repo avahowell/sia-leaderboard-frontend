@@ -8,7 +8,7 @@ const leaderboardStyle = {
 const Leaderboard = ({entries}) => (
 	<div style={leaderboardStyle}>
 		{entries.map((entry, key) =>
-			<LeaderboardEntry key={key} name={entry.name} numBytes={entry.numBytes} lastUpdated={entry.lastUpdated} />
+			<LeaderboardEntry key={key} name={entry.name} numBytes={entry.numBytes} lastUpdated={entry.lastUpdated} groups={entry.groups} />
 		)}
 	</div>
 )
