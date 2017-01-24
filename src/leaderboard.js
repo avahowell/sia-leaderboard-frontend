@@ -15,7 +15,7 @@ const Leaderboard = ({entries, groupFilters, sort}) => {
 	}
 
 	return (
-		<table style={leaderboardStyle}>
+		<table className="pure-table" style={leaderboardStyle}>
 			<thead>
 				<tr>
 					<th> Name </th>
