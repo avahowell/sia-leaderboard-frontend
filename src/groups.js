@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
 import { List } from 'immutable'
-import App from './app.js'
+import GroupLeaderboard from './groupleaderboard.js'
 
 // pull in and parse entries from the API here...
 // using testdata for now
@@ -13,16 +13,14 @@ const testEntries = List([
 	{ name: 'testuser5', numBytes: 1e9*0.2, lastUpdated: new Date(1000), groups: ['group1']},
 ])
 
-const onSortChange = (e) =>
+const render = () => {
 	ReactDOM.render(
-		<App
+		<GroupLeaderboard
 			entries={testEntries}
-			groupFilters={[]}
-			sort={e.target.value}
-			onSort={onSortChange}
 		/>,
 		document.getElementById('react-root')
 	)
+}
 
-ReactDOM.render(<App entries={testEntries} groupFilters={[]} sort="" onSort={onSortChange} />, document.getElementById('react-root'))
+render()
 

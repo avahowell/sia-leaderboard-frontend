@@ -3,10 +3,13 @@
 const path = require('path')
 
 module.exports = {
-	entry: './src/main.js',
+	entry: {
+		index: './src/index.js',
+		topgroups: './src/groups.js'
+	},
 	output: {
 		path: path.resolve("./dist"),
-		filename: 'main.js'
+		filename: '[name].js'
 	},
 	resolve: {
 		root: path.resolve('./node_modules')
