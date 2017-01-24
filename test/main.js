@@ -38,14 +38,14 @@ describe('leaderboard', () => {
 		})
 		it('properly renders entry timestamps', () => {
 			leaderboardEntryComponents.forEach((entry, idx) => {
-				expect(entry.find('#timestamp').text()).to.equal('Last Updated: ' + testEntries.get(idx).lastUpdated.toString())
+				expect(entry.find('#timestamp').text()).to.equal(testEntries.get(idx).lastUpdated.toString())
 			})
 		})
 		it('properly renders entry groups', () => {
 			leaderboardEntryComponents.forEach((entry, idx) => {
-				let expectedText = 'Groups: '
+				let expectedText = ''
 				for (const group in testEntries.get(idx).groups) {
-					if (expectedText === 'Groups: ') {
+					if (expectedText === '') {
 						expectedText = expectedText + testEntries.get(idx).groups[group]
 					} else {
 						expectedText = expectedText + ', ' + testEntries.get(idx).groups[group]

@@ -3,6 +3,7 @@ import LeaderboardEntry from './leaderboardentry.js'
 import { List } from 'immutable'
 
 const leaderboardStyle = {
+	'textAlign': 'left',
 }
 
 const Leaderboard = ({entries, groupFilters, sort}) => {
@@ -14,8 +15,17 @@ const Leaderboard = ({entries, groupFilters, sort}) => {
 	}
 
 	return (
-		<div style={leaderboardStyle}>
-			{
+		<table style={leaderboardStyle}>
+			<thead>
+				<tr>
+					<th> Name </th>
+					<th> Uploaded </th>
+					<th> Submitted </th>
+					<th> Groups </th>
+				</tr>
+			</thead>
+			<tbody>
+				{
 				sortedEntries.filter((entry) => groupFilters.length === 0 ? true : entry.groups.some((group) => groupFilters.includes(group))).map((entry, key) =>
 					<LeaderboardEntry
 						key={key}
@@ -25,8 +35,9 @@ const Leaderboard = ({entries, groupFilters, sort}) => {
 						groups={entry.groups}
 					/>
 				)
-			}
-		</div>
+				}
+			</tbody>
+		</table>
 	)
 }
 

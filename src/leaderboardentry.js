@@ -1,19 +1,21 @@
 import React, { PropTypes } from 'react'
 
-const entryStyle = {
+const dataStyle = {
+	paddingRight: '15px',
 }
 
 const LeaderboardEntry = ({name, numBytes, lastUpdated, groups}) => (
-	<div style={entryStyle}>
-		<div id="name">{name}</div>
-		<div id="numbytes">{numBytes/1e9} GB</div>
-		<div id="timestamp">Last Updated: {lastUpdated.toString()}</div>
-		<div id="groups">Groups: {
+	<tr>
+		<td style={dataStyle} id="name">{name}</td>
+		<td style={dataStyle} id="numbytes">{numBytes/1e9} GB</td>
+		<td style={dataStyle} id="timestamp">{lastUpdated.toString()}</td>
+		<td style={dataStyle} id="groups">
+			{
 			groups.reduce((grouptext, groupname) =>
 				grouptext === '' ? groupname : grouptext + ', ' + groupname, '')
-		}
-		</div>
-	</div>
+			}
+		</td>
+	</tr>
 )
 
 LeaderboardEntry.propTypes = {
