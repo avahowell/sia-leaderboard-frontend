@@ -3,6 +3,7 @@ import { List, Map } from 'immutable'
 
 const GroupLeaderboard = ({entries}) => {
 	let groupUploadValues = Map()
+
 	entries.forEach((entry) => {
 		entry.groups.forEach((group) => {
 			if (groupUploadValues.has(group)) {
