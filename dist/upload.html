@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Sia Leaderboard - Top Groups</title>
+		<title>Sia Leaderboard - Upload</title>
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="./assets/pure/pure-min.css">
 	</head>
@@ -13,10 +13,18 @@
 				<span class="header-text"> Data Storage Leaderboard </span>
 				<a href="index.html"> Top Users </a>
 				<a href="topgroups.html"> Top Groups </a>
-				<a href="upload.html"> Submit </a>
 			</div>
 		</div>
-		<div id="react-root"></div>
-		<script src="./topgroups.js"></script>
+		<form action="/leaderboard/foobar" class="upload-form">
+			Name:
+			<input type="text" name="name" value="">
+			Password:
+			<input type="password" name="passsword" value="">
+			Email:
+			<input type="text" name="email" value="">
+			Contracts:
+			<input type="file" name="contracts" accept="json">
+			<input type="submit">
+		</form>
 	</body>
 </html>
