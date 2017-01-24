@@ -33,8 +33,6 @@ const onGroupFilter = (e) => {
 }
 
 render = () => {
-	console.log(groupFilters)
-	console.log(sort)
 	ReactDOM.render(
 		<App
 			entries={testEntries}
