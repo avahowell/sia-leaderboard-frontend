@@ -15,22 +15,22 @@
 				<a href="topgroups.html"> Top Groups </a>
 			</div>
 		</div>
-		<form action="/user" class="upload-form">
-			Name:
-			<input type="text" name="name" value="">
-			<br></br>
-			Password:
-			<input type="password" name="passsword" value="">
-			<br></br>
-			Email:
-			<input type="text" name="email" value="">
-			<br></br>
-			Groups: 
-			<input type="text" name="groups" value="">
-			Contracts:
-			<input type="file" name="contracts" accept="json">
-			<br></br>
-			<input value="Submit" type="submit">
+		<form action="/user" class="pure-form pure-form-stacked">
+			<fieldset>
+				<legend>Submit your data usage to the leaderboard</legend>
+				
+				<label for="email">Email</label>
+				<input id="email" type="email" name="email" placeholder="Email">
+				<label for="name">Name</label>
+				<input id="name" type="text" name="name" placeholder="Name">
+				<label for="password">Password</label>
+				<input id="password" type="password" name="password" placeholder="Password">
+				<label for="groups">Groups</label>
+				<input id="groups" type="text" name="groups" placeholder="Groups (comma-separated">
+				<label for="contracts">Contracts</label>
+				<input id="contracts" type="file" name="contracts" accept="json">
+				<button type="submit" class="pure-button pure-button-primary">Submit</button>
+			</fieldset>
 		</form>
 	</body>
 </html>
