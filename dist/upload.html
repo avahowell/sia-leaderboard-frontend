@@ -7,12 +7,12 @@
 		<link rel="stylesheet" href="./assets/pure/pure-min.css">
 	</head>
 	<body>
-		<div class="header">
-			<div class="header-image">
-				<img src="assets/siaLogo.svg" height="50">
-				<span class="header-text"> Data Storage Leaderboard </span>
-				<a href="index.html"> Top Users </a>
-				<a href="topgroups.html"> Top Groups </a>
+		<div class="header pure-menu pure-menu-horizontal">
+			<img class="header-image" src="assets/siaLogo.svg" height="50">
+			<ul class="pure-menu-list">
+				<li class="pure-menu-item"><a class="pure-menu-link" href="index.html"> Top Users </a></li>
+				<li class="pure-menu-item"><a class="pure-menu-link" href="topgroups.html"> Top Groups </a></li>
+				<li class="pure-menu-item"><a class="pure-menu-link" href="upload.html"> Submit </a></li>
 			</div>
 		</div>
 		<form action="/user" method="post" enctype="multipart/form-data" class="pure-form pure-form-stacked">

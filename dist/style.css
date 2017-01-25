@@ -35,3 +35,9 @@ html, body {
 	display: -webkit-flex;
 	justify-content: center;
 }
+.pure-menu-link:hover{
+	background-color: #313133 !important;
+}
+.pure-menu-item {
+	float: right;
+}
