@@ -6,6 +6,7 @@ import request from 'superagent'
 import { parseLeaders } from './parse.js'
 
 let entries = List()
+let render = () => { }
 
 request.get('/leaderboard').end((err, res) => {
 	if (err) {
@@ -17,8 +18,6 @@ request.get('/leaderboard').end((err, res) => {
 
 let sort = 'uploaded'
 let groupFilters = []
-
-let render = () => { }
 
 const onSortChange = (e) => {
 	sort = e.target.value

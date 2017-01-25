@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-import { List } from 'immutable'
 import GroupLeaderboard from './groupleaderboard.js'
 import request from 'superagent'
 import { parseLeaders } from './parse.js'

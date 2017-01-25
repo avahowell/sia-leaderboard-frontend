@@ -9,11 +9,11 @@ global.document = jsdom('')
 global.window = document.defaultView
 
 const testEntries = List([
-	{ name: 'testuser1', numBytes: 1e9, lastUpdated: new Date(), groups: ['group1']},
-	{ name: 'testuser2', numBytes: 1e9*5, lastUpdated: new Date(), groups: ['group2']},
-	{ name: 'testuser3', numBytes: 1e9*2, lastUpdated: new Date(), groups: ['group1']},
-	{ name: 'testuser9', numBytes: 1e9*0.5, lastUpdated:  new Date(), groups: ['group1', 'group2']},
-	{ name: 'testuser5', numBytes: 1e9*0.2, lastUpdated: new Date(), groups: ['group1']},
+	{ name: 'testuser1', size: 1e9, lastUpdated: new Date(), groups: ['group1']},
+	{ name: 'testuser2', size: 1e9*5, lastUpdated: new Date(), groups: ['group2']},
+	{ name: 'testuser3', size: 1e9*2, lastUpdated: new Date(), groups: ['group1']},
+	{ name: 'testuser9', size: 1e9*0.5, lastUpdated:  new Date(), groups: ['group1', 'group2']},
+	{ name: 'testuser5', size: 1e9*0.2, lastUpdated: new Date(), groups: ['group1']},
 ])
 
 describe('leaderboard', () => {
@@ -32,7 +32,7 @@ describe('leaderboard', () => {
 		})
 		it('properly renders entry bytes', () => {
 			leaderboardEntryComponents.forEach((entry, idx) => {
-				const expectedText = (testEntries.get(idx).numBytes/1e9).toString() + ' GB'
+				const expectedText = (testEntries.get(idx).size/1e9).toString() + ' GB'
 				expect(entry.find('#numbytes').text()).to.equal(expectedText)
 			})
 		})
@@ -71,7 +71,7 @@ describe('leaderboard', () => {
 				if (i === 0) {
 					continue
 				}
-				if (componentEntries.at(i).props().numBytes >= componentEntries.at(i-1).props().numBytes) {
+				if (componentEntries.at(i).props().size >= componentEntries.at(i-1).props().size) {
 					isSorted = false
 				}
 			}
