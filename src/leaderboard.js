@@ -9,7 +9,7 @@ const leaderboardStyle = {
 const Leaderboard = ({entries, groupFilters, sort}) => {
 	let sortedEntries = entries
 	if (sort === 'uploaded') {
-		sortedEntries = entries.sortBy((entry) => -entry.numBytes)
+		sortedEntries = entries.sortBy((entry) => -entry.size)
 	} else if (sort === 'timestamp') {
 		sortedEntries = entries.sortBy((entry) => entry.lastUpdated)
 	}
@@ -30,7 +30,7 @@ const Leaderboard = ({entries, groupFilters, sort}) => {
 					<LeaderboardEntry
 						key={key}
 						name={entry.name}
-						numBytes={entry.numBytes}
+						size={entry.size}
 						lastUpdated={entry.lastUpdated}
 						groups={entry.groups}
 					/>

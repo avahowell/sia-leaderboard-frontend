@@ -7,9 +7,9 @@ const GroupLeaderboard = ({entries}) => {
 	entries.forEach((entry) => {
 		entry.groups.forEach((group) => {
 			if (groupUploadValues.has(group)) {
-				groupUploadValues = groupUploadValues.set(group, groupUploadValues.get(group) + entry.numBytes)
+				groupUploadValues = groupUploadValues.set(group, groupUploadValues.get(group) + entry.size)
 			} else {
-				groupUploadValues = groupUploadValues.set(group, entry.numBytes)
+				groupUploadValues = groupUploadValues.set(group, entry.size)
 			}
 		})
 	})

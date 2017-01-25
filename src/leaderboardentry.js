@@ -4,10 +4,10 @@ const dataStyle = {
 	paddingRight: '15px',
 }
 
-const LeaderboardEntry = ({name, numBytes, lastUpdated, groups}) => (
+const LeaderboardEntry = ({name, size, lastUpdated, groups}) => (
 	<tr>
 		<td style={dataStyle} id="name">{name}</td>
-		<td style={dataStyle} id="numbytes">{numBytes/1e9} GB</td>
+		<td style={dataStyle} id="numbytes">{size/1e9} GB</td>
 		<td style={dataStyle} id="timestamp">{lastUpdated.toString()}</td>
 		<td style={dataStyle} id="groups">
 			{
@@ -20,7 +20,7 @@ const LeaderboardEntry = ({name, numBytes, lastUpdated, groups}) => (
 
 LeaderboardEntry.propTypes = {
 	name: PropTypes.string.isRequired,
-	numBytes: PropTypes.number.isRequired,
+	size: PropTypes.number.isRequired,
 	lastUpdated: PropTypes.instanceOf(Date).isRequired,
 	groups: PropTypes.instanceOf(Array).isRequired,
 }
