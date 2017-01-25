@@ -5,21 +5,14 @@ import App from './app.js'
 import request from 'superagent'
 import { parseLeaders } from './parse.js'
 
+let entries = List()
+
 request.get('/leaderboard').end((err, res) => {
 	if (err) {
 		console.error(err)
 	}
-	const leaders = parseLeaders(JSON.parse(res.text))
-	ReactDOM.render(
-		<App
-			entries={leaders}
-			groupFilters={groupFilters}
-			sort={sort}
-			onSort={onSortChange}
-			onGroupFilter={onGroupFilter}
-		/>,
-		document.getElementById('react-root')
-	)
+	entries = parseLeaders(JSON.parse(res.text))
+	render()
 })
 
 let sort = 'uploaded'
@@ -42,16 +35,16 @@ const onGroupFilter = (e) => {
 }
 
 render = () => {
-//	ReactDOM.render(
-//		<App
-//			entries={testEntries}
-//			groupFilters={groupFilters}
-//			sort={sort}
-//			onSort={onSortChange}
-//			onGroupFilter={onGroupFilter}
-//		/>,
-//		document.getElementById('react-root')
-//	)
+	ReactDOM.render(
+		<App
+			entries={entries}
+			groupFilters={groupFilters}
+			sort={sort}
+			onSort={onSortChange}
+			onGroupFilter={onGroupFilter}
+		/>,
+		document.getElementById('react-root')
+	)
 }
 
 render()

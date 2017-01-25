@@ -15,7 +15,7 @@ const GroupLeaderboard = ({entries}) => {
 	})
 
 	return (
-		<table>
+		<table className="pure-table pure-table-horizontal" style={{textAlign: 'left'}}>
 			<thead>
 				<tr>
 					<th> Name </th>

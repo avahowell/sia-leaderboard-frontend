@@ -16,14 +16,12 @@ const App = ({entries, sort, groupFilters, onSort, onGroupFilter}) => {
 
 	return (
 		<div style={appStyle}>
-			<div>
+			<div style={{marginBottom: '2rem', marginTop: '1rem'}}>
 				<span> Sort By: </span>
 				<select onChange={onSort}>
 					<option value="uploaded">Uploaded (highest first)</option>
 					<option value="timestamp">Newest</option>
 				</select>
-			</div>
-			<div>
 				<span> Filter by Group: </span>
 				<select onChange={onGroupFilter}>
 					<option value="nofilter">No Filter</option>

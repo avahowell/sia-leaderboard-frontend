@@ -39,5 +39,11 @@ html, body {
 	background-color: #313133 !important;
 }
 .pure-menu-item {
-	float: right;
+	float: left;
+}
+
+form {
+	margin: auto;
+	width: 400px;
+	padding: 10px;
 }
